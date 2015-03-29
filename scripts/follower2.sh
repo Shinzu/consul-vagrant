@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo echo -n > /etc/default/consul
 sudo cat > /etc/consul/config.json << EOL
 {
   "datacenter": "vagrant-dc",

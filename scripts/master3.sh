@@ -10,7 +10,7 @@ sudo cat > /etc/consul/config.json << EOL
   "domain": "consul.",
   "recursor": "8.8.8.8",
   "encrypt": "67yREDkFtrJ/h2joGY1kBA==",
-  "start_join": ["192.168.2.2", "192.168.2.3"]
+  "start_join": ["192.168.2.2", "192.168.2.3"],
   "server": true
 }
 EOL
