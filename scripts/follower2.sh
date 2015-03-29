@@ -4,9 +4,12 @@ sudo cat > /etc/consul/config.json << EOL
 {
   "datacenter": "vagrant-dc",
   "data_dir": "/var/cache/consul",
-  "log_level": "INFO",
+  "log_level": "DEBUG",
   "node_name": "consul-follower-2",
   "bind_addr": "0.0.0.0",
+  "addresses": {
+    "http": "0.0.0.0"
+  },
   "advertise_addr": "192.168.2.6",
   "domain": "consul.",
   "recursor": "8.8.8.8",
