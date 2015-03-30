@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   # Begin server1
   config.vm.define "server1" do |server1|
-    server1.vm.hostname = "server1"
+    server1.vm.hostname = "consul-master-1"
     server1.vm.box = "trusty64-consul"
 
     server1.vm.provider "virtualbox" do |v|
@@ -28,7 +28,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Begin server2
   config.vm.define "server2" do |server2|
-    server2.vm.hostname = "server2"
+    server2.vm.hostname = "consul-master-2"
     server2.vm.box = "trusty64-consul"
 
     server2.vm.provider "virtualbox" do |v|
@@ -42,7 +42,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Begin server3
   config.vm.define "server3" do |server3|
-    server3.vm.hostname = "server3"
+    server3.vm.hostname = "consul-master-3"
     server3.vm.box = "trusty64-consul"
 
     server3.vm.provider "virtualbox" do |v|
@@ -56,7 +56,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Begin server4
   config.vm.define "server4" do |server4|
-    server4.vm.hostname = "server4"
+    server4.vm.hostname = "consul-follower-1"
     server4.vm.box = "trusty64-consul"
 
     server4.vm.provider "virtualbox" do |v|
@@ -70,7 +70,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Begin server5
   config.vm.define "server5" do |server5|
-    server5.vm.hostname = "server5"
+    server5.vm.hostname = "consul-follower-2"
     server5.vm.box = "trusty64-consul"
 
     server5.vm.provider "virtualbox" do |v|
