@@ -4,12 +4,14 @@ An easy way to get a cluster of Consul boxes to play with.
 
 These boxes are built with [consul-cookbook](https://github.com/darron/consul-cookbook) and are available on Vagrant Cloud as [darron/consul](https://vagrantcloud.com/darron/consul).
 
+Edit. i rebuild the boxes ,is available on Atlas under [shinzu/trusty64-consul](https://atlas.hashicorp.com/shinzu/trusty64-consul)
+
 ```
 git clone
 vagrant up server1
-vagrant ssh server1
-sudo tail -f /var/log/upstart/consul.log
 ```
+wait until server is finished with the bootstrap
+
 Open another terminal or tab and launch the others:
 
 ```
@@ -18,16 +20,26 @@ vagrant up server3
 vagrant up server4
 vagrant up server5
 ```
+and wait until all server are joined the cluster
 
-You should have a fully working 5 member cluster at the end of this.
+Ctrl-c now the server1 and connect to the server
+```
+vagrant ssh server1
+sudo -i
+ps faux | grep consul
+kill <consul pid>
+start consul
+```
 
-To access the built in web ui that's new on 0.2.0 - you can add something similar to your `~/.ssh/config` file:
+You should have a fully working 3 master cluster(server{1..3}) with 2 members/clients(server{4..5}) at the end of this.
+
+To access the built in web ui (runs only on the masters) that's new on 0.2.0 - you can add something similar to your `~/.ssh/config` file:
 
 ```
 Host consulserver1
   Hostname 127.0.0.1
   Port 2222
-  IdentityFile /Users/your-name-goes-here/.vagrant.d/insecure_private_key
+  IdentityFile *path to repo*/consul-vagrant/.vagrant/machines/server1
   User vagrant
   LocalForward 8500 localhost:8500
 ```
